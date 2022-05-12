@@ -20,6 +20,5 @@ basic_keypad = {};
 
 dofile(minetest.get_modpath("basic_keypad").."/mark.lua") -- used for markings, borrowed and adapted from worldedit mod
 dofile(minetest.get_modpath("basic_keypad").."/keypad.lua") -- mover, detector, keypad, distributor
-dofile(minetest.get_modpath("basic_keypad").."/protect.lua") -- enable interaction with players, adds local on protect/chat event handling
 
 print("[MOD] basic_keypad loaded")
