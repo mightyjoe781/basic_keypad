@@ -16,14 +16,10 @@
 -- along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
-basic_machines = {};
+basic_keypad = {};
 
-dofile(minetest.get_modpath("basic_machines").."/mark.lua") -- used for markings, borrowed and adapted from worldedit mod
-dofile(minetest.get_modpath("basic_machines").."/mover.lua") -- mover, detector, keypad, distributor
-dofile(minetest.get_modpath("basic_machines").."/protect.lua") -- enable interaction with players, adds local on protect/chat event handling
+dofile(minetest.get_modpath("basic_keypad").."/mark.lua") -- used for markings, borrowed and adapted from worldedit mod
+dofile(minetest.get_modpath("basic_keypad").."/mover.lua") -- mover, detector, keypad, distributor
+dofile(minetest.get_modpath("basic_keypad").."/protect.lua") -- enable interaction with players, adds local on protect/chat event handling
 
--- COMPATIBILITY
-minetest.register_alias("basic_machines:battery", "basic_machines:battery_0")
-
-
-print("[MOD] basic_machines " .. basic_machines.version .. " loaded.")
+print("[MOD] basic_keypad loaded")

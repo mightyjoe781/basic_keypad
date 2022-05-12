@@ -6,59 +6,59 @@
 
 
 --  *** SETTINGS *** --
-basic_machines.timer = 5 -- main timestep
-basic_machines.machines_minstep = 1 -- minimal allowed activation timestep, if faster machines overheat
+basic_keypad.timer = 5 -- main timestep
+basic_keypad.machines_minstep = 1 -- minimal allowed activation timestep, if faster machines overheat
 
-basic_machines.max_range = 10 -- machines normal range of operation
-basic_machines.machines_operations = 10 -- 1 coal will provide 10 mover basic operations ( moving dirt 1 block distance)
-basic_machines.machines_TTL = 16 -- time to live for signals, how many hops before signal dissipates
+basic_keypad.max_range = 10 -- machines normal range of operation
+basic_keypad.machines_operations = 10 -- 1 coal will provide 10 mover basic operations ( moving dirt 1 block distance)
+basic_keypad.machines_TTL = 16 -- time to live for signals, how many hops before signal dissipates
 
-basic_machines.version = "10/02/2021a";
-basic_machines.clockgen = 1; -- if 0 all background continuously running activity (clockgen/keypad) repeating is disabled
+basic_keypad.version = "10/02/2021a";
+basic_keypad.clockgen = 1; -- if 0 all background continuously running activity (clockgen/keypad) repeating is disabled
 
 -- how hard it is to move blocks, default factor 1, note fuel cost is this multiplied by distance and divided by machine_operations..
-basic_machines.hardness = {
+basic_keypad.hardness = {
 ["default:stone"]=3,["default:tree"]=1,["default:jungletree"]=1,["default:pine_tree"]=1,["default:aspen_tree"]=1,["default:acacia_tree"]=1, ["default:bush_leaves"] = 0.1,["default:leaves"] = 0.1, ["default:jungleleaves"] = 0.1,
 ["gloopblocks:pumice_cooled"]=2,["default:cloud"] = 999999,
 ["default:lava_source"]=5950,["default:water_source"]=5950,["default:obsidian"]=20,["bedrock2:bedrock"]=999999};
 --move machines for free
-basic_machines.hardness["basic_machines:mover"]=0.;
-basic_machines.hardness["basic_machines:keypad"]=0.;
-basic_machines.hardness["basic_machines:distributor"]=0.;
-basic_machines.hardness["basic_machines:battery_0"]=0.;
-basic_machines.hardness["basic_machines:battery_1"]=0.;
-basic_machines.hardness["basic_machines:battery_2"]=0.;
-basic_machines.hardness["basic_machines:detector"]=0.;
-basic_machines.hardness["basic_machines:generator"]=999999.; -- can only place generator by hand
-basic_machines.hardness["basic_machines:clockgen"]=0.;
-basic_machines.hardness["basic_machines:ball_spawner"]=0.;
-basic_machines.hardness["basic_machines:light_on"]=0.;
-basic_machines.hardness["basic_machines:light_off"]=0.;
+basic_keypad.hardness["basic_keypad:mover"]=0.;
+basic_keypad.hardness["basic_keypad:keypad"]=0.;
+basic_keypad.hardness["basic_keypad:distributor"]=0.;
+basic_keypad.hardness["basic_keypad:battery_0"]=0.;
+basic_keypad.hardness["basic_keypad:battery_1"]=0.;
+basic_keypad.hardness["basic_keypad:battery_2"]=0.;
+basic_keypad.hardness["basic_keypad:detector"]=0.;
+basic_keypad.hardness["basic_keypad:generator"]=999999.; -- can only place generator by hand
+basic_keypad.hardness["basic_keypad:clockgen"]=0.;
+basic_keypad.hardness["basic_keypad:ball_spawner"]=0.;
+basic_keypad.hardness["basic_keypad:light_on"]=0.;
+basic_keypad.hardness["basic_keypad:light_off"]=0.;
 
 -- grief potential items need highest possible upgrades
-basic_machines.hardness["boneworld:acid_source_active"]=5950.;
-basic_machines.hardness["darkage:mud"]=5950.;
+basic_keypad.hardness["boneworld:acid_source_active"]=5950.;
+basic_keypad.hardness["darkage:mud"]=5950.;
 
-basic_machines.hardness["es:toxic_water_source"]=5950.;basic_machines.hardness["es:toxic_water_flowing"]=5950;
-basic_machines.hardness["default:river_water_source"]=5950.;
+basic_keypad.hardness["es:toxic_water_source"]=5950.;basic_keypad.hardness["es:toxic_water_flowing"]=5950;
+basic_keypad.hardness["default:river_water_source"]=5950.;
 
 -- farming operations are much cheaper
-basic_machines.hardness["farming:wheat_8"]=1;basic_machines.hardness["farming:cotton_8"]=1;
-basic_machines.hardness["farming:seed_wheat"]=0.5;basic_machines.hardness["farming:seed_cotton"]=0.5;
+basic_keypad.hardness["farming:wheat_8"]=1;basic_keypad.hardness["farming:cotton_8"]=1;
+basic_keypad.hardness["farming:seed_wheat"]=0.5;basic_keypad.hardness["farming:seed_cotton"]=0.5;
 
 -- digging mese crystals more expensive
-basic_machines.hardness["mese_crystals:mese_crystal_ore1"] = 10;
-basic_machines.hardness["mese_crystals:mese_crystal_ore2"] = 10;
-basic_machines.hardness["mese_crystals:mese_crystal_ore3"] = 10;
-basic_machines.hardness["mese_crystals:mese_crystal_ore4"] = 10;
+basic_keypad.hardness["mese_crystals:mese_crystal_ore1"] = 10;
+basic_keypad.hardness["mese_crystals:mese_crystal_ore2"] = 10;
+basic_keypad.hardness["mese_crystals:mese_crystal_ore3"] = 10;
+basic_keypad.hardness["mese_crystals:mese_crystal_ore4"] = 10;
 
 
 -- define which nodes are dug up completely, like a tree
-basic_machines.dig_up_table = {["default:cactus"]=true,["default:tree"]=true,["default:jungletree"]=true,["default:pine_tree"]=true,
+basic_keypad.dig_up_table = {["default:cactus"]=true,["default:tree"]=true,["default:jungletree"]=true,["default:pine_tree"]=true,
 ["default:acacia_tree"]=true,["default:aspen_tree"]=true,["default:papyrus"]=true};
 				
 -- set up nodes for harvest when digging: [nodename] = {what remains after harvest, harvest result}
-basic_machines.harvest_table = {
+basic_keypad.harvest_table = {
 ["mese_crystals:mese_crystal_ore4"] = {"mese_crystals:mese_crystal_ore1", "default:mese_crystal 3"}, -- harvesting mese crystals
 ["mese_crystals:mese_crystal_ore3"] = {"mese_crystals:mese_crystal_ore1", "default:mese_crystal 2"},
 ["mese_crystals:mese_crystal_ore2"] = {"mese_crystals:mese_crystal_ore1", "default:mese_crystal 1"},
@@ -66,7 +66,7 @@ basic_machines.harvest_table = {
 };
 
 -- set up nodes for plant with reverse on and filter set (for example seeds -> plant) : [nodename] = plant_name
-basic_machines.plant_table  = {["farming:seed_barley"]="farming:barley_1",["farming:beans"]="farming:beanpole_1", -- so it works with farming redo mod
+basic_keypad.plant_table  = {["farming:seed_barley"]="farming:barley_1",["farming:beans"]="farming:beanpole_1", -- so it works with farming redo mod
 ["farming:blueberries"]="farming:blueberry_1",["farming:carrot"]="farming:carrot_1",["farming:cocoa_beans"]="farming:cocoa_1",
 ["farming:coffee_beans"]="farming:coffee_1",["farming:corn"]="farming:corn_1",["farming:blueberries"]="farming:blueberry_1",
 ["farming:seed_cotton"]="farming:cotton_1",["farming:cucumber"]="farming:cucumber_1",["farming:grapes"]="farming:grapes_1",
@@ -75,27 +75,27 @@ basic_machines.plant_table  = {["farming:seed_barley"]="farming:barley_1",["farm
 ["farming:seed_wheat"]="farming:wheat_1",["farming:seed_rice"]="farming:rice_1"}
 
 -- list of objects that cant be teleported with mover
-basic_machines.no_teleport_table = {
+basic_keypad.no_teleport_table = {
 ["itemframes:item"] = true,
 ["signs:text"] = true
 }
 
 -- list of nodes mover cant take from in inventory mode
-basic_machines.limit_inventory_table = { -- node name = {list of bad inventories to take from} OR node name = true to ban all inventories
-	["basic_machines:autocrafter"]= {["recipe"]=1, ["output"]=1},
-	["basic_machines:constructor"]= {["recipe"]=1},
-	["basic_machines:battery_0"] = {["upgrade"] = 1},
-	["basic_machines:battery_1"] = {["upgrade"] = 1},
-	["basic_machines:battery_2"] = {["upgrade"] = 1},
-	["basic_machines:generator"] = {["upgrade"] = 1},
-	["basic_machines:mover"] = true,
-	["basic_machines:grinder"] = {["upgrade"] = 1},
+basic_keypad.limit_inventory_table = { -- node name = {list of bad inventories to take from} OR node name = true to ban all inventories
+	["basic_keypad:autocrafter"]= {["recipe"]=1, ["output"]=1},
+	["basic_keypad:constructor"]= {["recipe"]=1},
+	["basic_keypad:battery_0"] = {["upgrade"] = 1},
+	["basic_keypad:battery_1"] = {["upgrade"] = 1},
+	["basic_keypad:battery_2"] = {["upgrade"] = 1},
+	["basic_keypad:generator"] = {["upgrade"] = 1},
+	["basic_keypad:mover"] = true,
+	["basic_keypad:grinder"] = {["upgrade"] = 1},
 	["moreblocks:circular_saw"] = true,
 	["smartshop:shop"] = true,
 }
 
 -- when activated with keypad these will be "punched" to update their text too
-basic_machines.signs = {
+basic_keypad.signs = {
 ["default:sign_wall_wood"] = true,
 ["signs:sign_wall_green"] = true,
 ["signs:sign_wall_green"] = true,
@@ -106,29 +106,29 @@ basic_machines.signs = {
 ["signs:sign_yard"] = true
 }
 
-basic_machines.connectables = { -- list of machines that distributor can connect to, used for distributor scan feature
-	["basic_machines:mover"]=0;
-	["basic_machines:keypad"]=0;
-	["basic_machines:distributor"]=0;
-	["basic_machines:battery_0"]=0;
-	["basic_machines:battery_1"]=0;
-	["basic_machines:battery_2"]=0;
-	["basic_machines:detector"]=0;
-	["basic_machines:generator"]=0;
-	["basic_machines:clockgen"]=0;
-	["basic_machines:ball_spawner"]=0;
-	["basic_machines:light_on"]=0;
-	["basic_machines:light_off"]=0;
+basic_keypad.connectables = { -- list of machines that distributor can connect to, used for distributor scan feature
+	["basic_keypad:mover"]=0;
+	["basic_keypad:keypad"]=0;
+	["basic_keypad:distributor"]=0;
+	["basic_keypad:battery_0"]=0;
+	["basic_keypad:battery_1"]=0;
+	["basic_keypad:battery_2"]=0;
+	["basic_keypad:detector"]=0;
+	["basic_keypad:generator"]=0;
+	["basic_keypad:clockgen"]=0;
+	["basic_keypad:ball_spawner"]=0;
+	["basic_keypad:light_on"]=0;
+	["basic_keypad:light_off"]=0;
 }
 
 --  *** END OF SETTINGS *** --
 
 
-local machines_timer = basic_machines.timer
-local machines_minstep = basic_machines.machines_minstep
-local max_range = basic_machines.max_range
-local machines_operations = basic_machines.machines_operations
-local machines_TTL = basic_machines.machines_TTL
+local machines_timer = basic_keypad.timer
+local machines_minstep = basic_keypad.machines_minstep
+local max_range = basic_keypad.max_range
+local machines_operations = basic_keypad.machines_operations
+local machines_TTL = basic_keypad.machines_TTL
 
 
 local punchset = {}; 
@@ -257,7 +257,7 @@ local find_and_connect_battery = function(pos)
 		local positions = minetest.find_nodes_in_area( --find battery
 			{x=pos.x-r, y=pos.y-r, z=pos.z-r},
 			{x=pos.x+r, y=pos.y+r, z=pos.z+r},
-			"basic_machines:battery_" .. i )
+			"basic_keypad:battery_" .. i )
 		if #positions>0 then 
 			local meta = minetest.get_meta(pos);
 			local fpos = positions[1] ;
@@ -272,7 +272,7 @@ local check_for_falling = minetest.check_for_falling or nodeupdate; -- 1st for m
 
 
 -- MOVER --
-minetest.register_node("basic_machines:mover", {
+minetest.register_node("basic_keypad:mover", {
 	description = "Mover - universal digging/harvesting/teleporting/transporting machine, its upgradeable.",
 	tiles = {"compass_top.png","default_furnace_top.png", "basic_machine_mover_side.png","basic_machine_mover_side.png","basic_machine_mover_side.png","basic_machine_mover_side.png"},
 	groups = {cracky=3},
@@ -305,7 +305,7 @@ minetest.register_node("basic_machines:mover", {
 		"IMPORTANT: Please read the help button inside machine before first use.";
 		
 			local form = "size [7.5,5.5] textarea[0,0.1;8,7;help;MOVER INTRODUCTION;".. text.."]"
-			minetest.show_formspec(name, "basic_machines:intro_mover", form)
+			minetest.show_formspec(name, "basic_keypad:intro_mover", form)
 		
 		
 		
@@ -324,7 +324,7 @@ minetest.register_node("basic_machines:mover", {
 		--if not privs.privs and cant_build then return end -- only ppl sharing protection can setup
 		
 		local form = get_mover_form(pos,player)
-		minetest.show_formspec(player:get_player_name(), "basic_machines:mover_"..minetest.pos_to_string(pos), form)
+		minetest.show_formspec(player:get_player_name(), "basic_keypad:mover_"..minetest.pos_to_string(pos), form)
 	end,
 	
 	allow_metadata_inventory_put = function(pos, listname, index, stack, player)
@@ -335,7 +335,7 @@ minetest.register_node("basic_machines:mover", {
 			meta:set_string("prefer",itemname);
 			--minetest.chat_send_player(player:get_player_name(),"#mover: filter set as " .. itemname)
 			local form = get_mover_form(pos,player)
-			minetest.show_formspec(player:get_player_name(), "basic_machines:mover_"..minetest.pos_to_string(pos), form)
+			minetest.show_formspec(player:get_player_name(), "basic_keypad:mover_"..minetest.pos_to_string(pos), form)
 			return 1;
 		end
 		
@@ -355,7 +355,7 @@ minetest.register_node("basic_machines:mover", {
 				meta:set_float("upgrade",upgrade+1);
 			
 				local form = get_mover_form(pos,player)
-				minetest.show_formspec(player:get_player_name(), "basic_machines:mover_"..minetest.pos_to_string(pos), form)
+				minetest.show_formspec(player:get_player_name(), "basic_keypad:mover_"..minetest.pos_to_string(pos), form)
 			end	
 			
 			
@@ -369,7 +369,7 @@ minetest.register_node("basic_machines:mover", {
 		local meta = minetest.get_meta(pos);
 		meta:set_float("upgrade",1); -- reset upgrade
 		local form = get_mover_form(pos,player)
-		minetest.show_formspec(player:get_player_name(), "basic_machines:mover_"..minetest.pos_to_string(pos), form)
+		minetest.show_formspec(player:get_player_name(), "basic_keypad:mover_"..minetest.pos_to_string(pos), form)
 		return stack:get_count();
 	end,
 	
@@ -428,7 +428,7 @@ minetest.register_node("basic_machines:mover", {
 		
 			-- FUEL COST: calculate
 			local dist = math.abs(pos2.x-pos1.x)+math.abs(pos2.y-pos1.y)+math.abs(pos2.z-pos1.z);
-			local hardness = basic_machines.hardness[node1.name];
+			local hardness = basic_keypad.hardness[node1.name];
 			-- no free teleports from machine blocks
 			if hardness == 0 and mode == "object" then hardness = 1 end
 			local fuel_cost = hardness or 1;
@@ -436,7 +436,7 @@ minetest.register_node("basic_machines:mover", {
 			local upgrade =  meta:get_float("upgrade") or 1;
 			
 			-- taking items from chests/inventory move
-			if node1.name == "default:chest_locked" or mode == "inventory" then fuel_cost = basic_machines.hardness[prefer] or 1 end;
+			if node1.name == "default:chest_locked" or mode == "inventory" then fuel_cost = basic_keypad.hardness[prefer] or 1 end;
 			
 			fuel_cost=fuel_cost*dist/machines_operations; -- machines_operations=10 by default, so 10 basic operations possible with 1 coal
 			if mode == "object" then  
@@ -469,7 +469,7 @@ minetest.register_node("basic_machines:mover", {
 		
 				local power_draw = fuel_cost;
 				if power_draw<1 then power_draw = 1 end -- at least 10 one block operations with 1 refuel
-				local supply = basic_machines.check_power(fpos, power_draw); 
+				local supply = basic_keypad.check_power(fpos, power_draw); 
 				
 				if supply>0 then
 					found_fuel=supply;
@@ -516,7 +516,7 @@ minetest.register_node("basic_machines:mover", {
 					local lua_entity = obj:get_luaentity() 
 					if not obj:is_player() and lua_entity and lua_entity.itemstring ~= "" then
 						local detected_obj = lua_entity.itemstring or ""
-						if not basic_machines.no_teleport_table[detected_obj] and (prefer=="" or prefer==detected_obj)  then -- object on no teleport list 
+						if not basic_keypad.no_teleport_table[detected_obj] and (prefer=="" or prefer==detected_obj)  then -- object on no teleport list 
 							-- put item in chest
 							local stack = ItemStack(lua_entity.itemstring) 
 							if inv:room_for_item("main", stack) then
@@ -561,14 +561,14 @@ minetest.register_node("basic_machines:mover", {
 				
 					local lua_entity = obj:get_luaentity();
 					local detected_obj = lua_entity.name or "" 
-					if not basic_machines.no_teleport_table[detected_obj] then -- object on no teleport list 
+					if not basic_keypad.no_teleport_table[detected_obj] then -- object on no teleport list 
 						if times > 0 then
 							local finalmove = true;
 							-- move objects with set velocity in target direction
 							obj:setvelocity(velocityv);
 							if obj:get_luaentity() then -- interaction with objects like carts
 								if lua_entity.name then 
-									if lua_entity.name == "basic_machines:ball" then -- move balls for free
+									if lua_entity.name == "basic_keypad:ball" then -- move balls for free
 										lua_entity.velocity = {x=velocityv.x*times,y=velocityv.y*times,z=velocityv.z*times};
 										finalmove = false;
 										finalsound = false;
@@ -633,7 +633,7 @@ minetest.register_node("basic_machines:mover", {
 					--if prefer == "" then meta:set_string("infotext", "Mover block. must set nodes to move (filter) in inventory mode."); return; end
 					
 					-- forbidden nodes to take from in inventory mode - to prevent abuses :
-					local limit_inventory = basic_machines.limit_inventory_table[node1.name]
+					local limit_inventory = basic_keypad.limit_inventory_table[node1.name]
 					if limit_inventory then
 						if limit_inventory == true or limit_inventory[invName1] then -- forbidden to take from this inventory
 							return 
@@ -701,8 +701,8 @@ minetest.register_node("basic_machines:mover", {
 				end
 				
 				if mreverse == 1 then -- planting mode: check if transform seed->plant is needed
-				if basic_machines.plant_table[prefer]~=nil then
-					prefer = basic_machines.plant_table[prefer];
+				if basic_keypad.plant_table[prefer]~=nil then
+					prefer = basic_keypad.plant_table[prefer];
 				end
 			end
 			end
@@ -723,13 +723,13 @@ minetest.register_node("basic_machines:mover", {
 			local dig_up = false; -- digs up node as a tree
 			if dig then 
 				
-				if not source_chest and basic_machines.dig_up_table[node1.name] then dig_up = true end
+				if not source_chest and basic_keypad.dig_up_table[node1.name] then dig_up = true end
 				-- do we harvest the node?
 				if not source_chest then 
-					if basic_machines.harvest_table[node1.name]~=nil then
+					if basic_keypad.harvest_table[node1.name]~=nil then
 						harvest = true 
-						local remains = basic_machines.harvest_table[node1.name][1];
-						local result = basic_machines.harvest_table[node1.name][2];
+						local remains = basic_keypad.harvest_table[node1.name][1];
+						local result = basic_keypad.harvest_table[node1.name][2];
 						minetest.set_node(pos1,{name=remains});
 						inv:add_item("main",result);
 					end
@@ -852,7 +852,7 @@ local check_mover_filter = function(mode, filter, mreverse) -- mover input valid
 	if filter == "" then return true end -- allow clearing filter
 	if mode == "normal" or mode == "dig" then
 		local nodedef = minetest.registered_nodes[filter]
-		if mreverse==1 and basic_machines.plant_table[filter] then return true end -- allow farming
+		if mreverse==1 and basic_keypad.plant_table[filter] then return true end -- allow farming
 		if not nodedef then return false end
 	end
 	return true
@@ -920,7 +920,7 @@ local function use_keypad(pos,ttl, again) -- position, time to live ( how many t
 		
 	if count>0 then -- only trigger repeat if count on
 			if repeating == 0 then meta:set_int("repeating",1); end-- its repeating now
-			if basic_machines.clockgen==0 then return end
+			if basic_keypad.clockgen==0 then return end
 			minetest.after(machines_timer, function() 
 				use_keypad(pos,machines_TTL,1) 
 			end )  
@@ -970,7 +970,7 @@ local function use_keypad(pos,ttl, again) -- position, time to live ( how many t
 		
 		local tmeta = minetest.get_meta(tpos);if not tmeta then return end
 		
-		if basic_machines.signs[node.name] then -- update text on signs with signs_lib
+		if basic_keypad.signs[node.name] then -- update text on signs with signs_lib
 			tmeta:set_string("infotext", text);
 			tmeta:set_string("text",text);
 			local table = minetest.registered_nodes[node.name];
@@ -984,7 +984,7 @@ local function use_keypad(pos,ttl, again) -- position, time to live ( how many t
 		end
 		
 		-- target is keypad, special functions: @, % that output to target keypad text
-		if node.name == "basic_machines:keypad" then -- special modify of target keypad text and change its target
+		if node.name == "basic_keypad:keypad" then -- special modify of target keypad text and change its target
 			
 			x0=tmeta:get_int("x0");y0=tmeta:get_int("y0");z0=tmeta:get_int("z0");
 			x0=tpos.x+x0;y0=tpos.y+y0;z0=tpos.z+z0;
@@ -1030,7 +1030,7 @@ local function use_keypad(pos,ttl, again) -- position, time to live ( how many t
 			return
 		end
 		
-		if node.name == "basic_machines:detector" then -- change filter on detector
+		if node.name == "basic_keypad:detector" then -- change filter on detector
 			if string.byte(text) == 64 then -- if text starts with @ clear the filter
 				tmeta:set_string("node","");
 			else
@@ -1039,7 +1039,7 @@ local function use_keypad(pos,ttl, again) -- position, time to live ( how many t
 			return
 		end
 		
-		if node.name == "basic_machines:mover" then -- change filter on mover
+		if node.name == "basic_keypad:mover" then -- change filter on mover
 			if string.byte(text) == 64 then -- if text starts with @ clear the filter
 				tmeta:set_string("prefer","");
 			else
@@ -1050,7 +1050,7 @@ local function use_keypad(pos,ttl, again) -- position, time to live ( how many t
 			return
 		end
 		
-		if node.name == "basic_machines:distributor" then
+		if node.name == "basic_keypad:distributor" then
 			local i = string.find(text," ");
 			if i then
 				local ti = tonumber(string.sub(text,1,i-1)) or 1;
@@ -1104,7 +1104,7 @@ local function check_keypad(pos,name,ttl) -- called only when manually activated
 		local form  = 
 		"size[3,1]" ..  -- width, height
 		"field[0.25,0.25;3,1;pass;Enter text: ;".."".."] button_exit[0.,0.5;1,1;OK;OK]";
-		minetest.show_formspec(name, "basic_machines:check_keypad_"..minetest.pos_to_string(pos), form)
+		minetest.show_formspec(name, "basic_keypad:check_keypad_"..minetest.pos_to_string(pos), form)
 		return
 	end
 	
@@ -1113,12 +1113,12 @@ local function check_keypad(pos,name,ttl) -- called only when manually activated
 		"size[3,1.25]" ..  -- width, height
 		"bgcolor[#FF8888BB; false]" ..
 		"field[0.25,0.25;3,1;pass;Enter Password: ;".."".."] button_exit[0.,0.75;1,1;OK;OK]";
-		minetest.show_formspec(name, "basic_machines:check_keypad_"..minetest.pos_to_string(pos), form)
+		minetest.show_formspec(name, "basic_keypad:check_keypad_"..minetest.pos_to_string(pos), form)
 	return
 
 end
 
-minetest.register_node("basic_machines:keypad", {
+minetest.register_node("basic_keypad:keypad", {
 	description = "Keypad - basic way to activate machines by sending signal",
 	tiles = {"keypad.png"},
 	groups = {cracky=3},
@@ -1173,9 +1173,9 @@ minetest.register_node("basic_machines:keypad", {
 		
 		;
 		-- if meta:get_string("owner")==player:get_player_name() then
-			minetest.show_formspec(player:get_player_name(), "basic_machines:keypad_"..minetest.pos_to_string(pos), form)
+			minetest.show_formspec(player:get_player_name(), "basic_keypad:keypad_"..minetest.pos_to_string(pos), form)
 		-- else
-			-- minetest.show_formspec(player:get_player_name(), "view_only_basic_machines_keypad", form)
+			-- minetest.show_formspec(player:get_player_name(), "view_only_basic_keypad_keypad", form)
 		-- end
 	end
 })
@@ -1184,7 +1184,7 @@ minetest.register_node("basic_machines:keypad", {
 
 -- DETECTOR --
 
-minetest.register_node("basic_machines:detector", {
+minetest.register_node("basic_keypad:detector", {
 	description = "Detector - can detect blocks/players/objects and activate machines",
 	tiles = {"detector.png"},
 	groups = {cracky=3},
@@ -1261,9 +1261,9 @@ minetest.register_node("basic_machines:detector", {
 		"button[3.,4.4;1,1;help;help] button_exit[3.,5.4;1,1;OK;OK] "
 		
 		--if meta:get_string("owner")==player:get_player_name() then
-			minetest.show_formspec(player:get_player_name(), "basic_machines:detector_"..minetest.pos_to_string(pos), form)
+			minetest.show_formspec(player:get_player_name(), "basic_keypad:detector_"..minetest.pos_to_string(pos), form)
 		-- else
-			-- minetest.show_formspec(player:get_player_name(), "view_only_basic_machines_detector", form)
+			-- minetest.show_formspec(player:get_player_name(), "view_only_basic_keypad_detector", form)
 		-- end
 	end,
 	
@@ -1460,7 +1460,7 @@ minetest.register_node("basic_machines:detector", {
 				meta:set_string("infotext", "detector: on");
 				if not effector.action_on then return end
 				if NOT == 4 then -- set detected object name as target text (target must be keypad, if not changes infotext)
-					if minetest.get_node({x=x2,y=y2,z=z2}).name == "basic_machines:keypad" then
+					if minetest.get_node({x=x2,y=y2,z=z2}).name == "basic_keypad:keypad" then
 						detected_obj = detected_obj or "";
 						local tmeta = minetest.get_meta({x=x2,y=y2,z=z2});
 						tmeta:set_string("text",detected_obj);
@@ -1486,21 +1486,21 @@ minetest.register_chatcommand("clockgen", { -- test: toggle machine running with
 		local privs = minetest.get_player_privs(name);
 		if not privs.privs then return end
 		local player = minetest.get_player_by_name(name);
-		if basic_machines.clockgen == 0 then basic_machines.clockgen = 1 else basic_machines.clockgen = 0 end
-		minetest.chat_send_player(name, "#clockgen set to " .. basic_machines.clockgen);
+		if basic_keypad.clockgen == 0 then basic_keypad.clockgen = 1 else basic_keypad.clockgen = 0 end
+		minetest.chat_send_player(name, "#clockgen set to " .. basic_keypad.clockgen);
 	end
 })
 
 
 -- CLOCK GENERATOR : periodically activates machine on top of it
 minetest.register_abm({ 
-	nodenames = {"basic_machines:clockgen"},
+	nodenames = {"basic_keypad:clockgen"},
 	neighbors = {},
 	interval = machines_timer,
 	chance = 1,
 	
 	action = function(pos, node, active_object_count, active_object_count_wider)
-		if basic_machines.clockgen == 0 then return end
+		if basic_keypad.clockgen == 0 then return end
 		local meta = minetest.get_meta(pos); 
 		local machines = meta:get_int("machines");
 		if machines~=1 then -- no machines privilege
@@ -1522,15 +1522,15 @@ minetest.register_abm({
 	end
 	});
 
-minetest.register_node("basic_machines:clockgen", {
+minetest.register_node("basic_keypad:clockgen", {
 	description = "Clock generator - use sparingly, continually activates top block",
 	tiles = {"basic_machine_clock_generator.png"},
 	groups = {cracky=3},
 	sounds = default.node_sound_wood_defaults(),
 	after_place_node = function(pos, placer)
-		if minetest.find_node_near(pos, 15, {"basic_machines:clockgen"}) then
+		if minetest.find_node_near(pos, 15, {"basic_keypad:clockgen"}) then
 			minetest.set_node(pos,{name="air"})
-			minetest.add_item(pos,"basic_machines:clockgen")
+			minetest.add_item(pos,"basic_keypad:clockgen")
 			minetest.chat_send_player(placer:get_player_name(),"#clock generator: interference from nearby clock generator detected.")
 			return
 		end
@@ -1605,7 +1605,7 @@ end
 
 
 
-minetest.register_node("basic_machines:distributor", {
+minetest.register_node("basic_keypad:distributor", {
 	description = "Distributor - can forward signal up to 16 different targets",
 	tiles = {"distributor.png"},
 	groups = {cracky=3},
@@ -1758,7 +1758,7 @@ minetest.register_node("basic_machines:distributor", {
 	},
 	on_rightclick = function(pos, node, player, itemstack, pointed_thing)
 		local form = get_distributor_form(pos,player)
-		if form then minetest.show_formspec(player:get_player_name(), "basic_machines:distributor_"..minetest.pos_to_string(pos), form) end
+		if form then minetest.show_formspec(player:get_player_name(), "basic_keypad:distributor_"..minetest.pos_to_string(pos), form) end
 	end,
 	}
 )
@@ -1766,13 +1766,13 @@ minetest.register_node("basic_machines:distributor", {
 
 -- LIGHT --
 
-minetest.register_node("basic_machines:light_off", {
+minetest.register_node("basic_keypad:light_off", {
 	description = "Light off",
 	tiles = {"light_off.png"},
 	groups = {cracky=3},
 	effector = {
 		action_on = function (pos, node,ttl) 
-			minetest.swap_node(pos,{name = "basic_machines:light_on"});		
+			minetest.swap_node(pos,{name = "basic_keypad:light_on"});		
 			local meta = minetest.get_meta(pos);
 			local deactivate = meta:get_int("deactivate");
 			
@@ -1781,7 +1781,7 @@ minetest.register_node("basic_machines:light_off", {
 					minetest.after(deactivate, 
 						function()
 							--if meta:get_int("active") ~= 1 then -- was not activated again, so turn it off
-								minetest.swap_node(pos,{name = "basic_machines:light_off"}); -- turn off again
+								minetest.swap_node(pos,{name = "basic_keypad:light_off"}); -- turn off again
 								--meta:set_int("active",0);
 							--end
 						end
@@ -1792,7 +1792,7 @@ minetest.register_node("basic_machines:light_off", {
 })
 
 
-minetest.register_node("basic_machines:light_on", {
+minetest.register_node("basic_keypad:light_on", {
 	description = "Light on",
 	tiles = {"light.png"},
 	groups = {cracky=3},
@@ -1820,7 +1820,7 @@ minetest.register_node("basic_machines:light_on", {
 	
 	effector = {
 		action_off = function (pos, node,ttl) 
-			minetest.swap_node(pos,{name = "basic_machines:light_off"});		
+			minetest.swap_node(pos,{name = "basic_keypad:light_off"});		
 		end,
 		action_on = function (pos, node,ttl) 
 			local meta = minetest.get_meta(pos);
@@ -1833,7 +1833,7 @@ minetest.register_node("basic_machines:light_on", {
 
 
 
-punchset.known_nodes = {["basic_machines:mover"]=true,["basic_machines:keypad"]=true,["basic_machines:detector"]=true};
+punchset.known_nodes = {["basic_keypad:mover"]=true,["basic_keypad:keypad"]=true,["basic_keypad:detector"]=true};
 
 -- SETUP BY PUNCHING
 minetest.register_on_punchnode(function(pos, node, puncher, pointed_thing)
@@ -1856,12 +1856,12 @@ minetest.register_on_punchnode(function(pos, node, puncher, pointed_thing)
 	-- from now on only punches with mover/keypad/... or setup punches
 	
 	if punchset.known_nodes[node.name] then  -- check if player is suppose to be able to punch interact
-			if node.name~="basic_machines:keypad" then -- keypad is supposed to be punch interactive!
+			if node.name~="basic_keypad:keypad" then -- keypad is supposed to be punch interactive!
 				if minetest.is_protected(pos, name) then return end
 			end
 	end
 	
-	if node.name == "basic_machines:mover" then -- mover init code
+	if node.name == "basic_keypad:mover" then -- mover init code
 		if punchset[name].state == 0 then 
 			-- if not puncher:get_player_control().sneak then
 				-- return
@@ -1873,7 +1873,7 @@ minetest.register_on_punchnode(function(pos, node, puncher, pointed_thing)
 		end
 	end
 	
-	 if punchset[name].node == "basic_machines:mover" then -- mover code, not first punch
+	 if punchset[name].node == "basic_keypad:mover" then -- mover code, not first punch
 		
 		if minetest.is_protected(pos,name) then
 			minetest.chat_send_player(name, "MOVER: Punched position is protected. aborting.")
@@ -1925,7 +1925,7 @@ minetest.register_on_punchnode(function(pos, node, puncher, pointed_thing)
 		end
 		
 		if punchset[name].state == 3 then 
-			if punchset[name].node~="basic_machines:mover" then punchset[name].state = 0 return end
+			if punchset[name].node~="basic_keypad:mover" then punchset[name].state = 0 return end
 			local privs = minetest.get_player_privs(puncher:get_player_name());
 			local elevator_mode = false;
 			if	(punchset[name].pos.x == pos.x and punchset[name].pos.z == pos.z) or
@@ -2000,7 +2000,7 @@ minetest.register_on_punchnode(function(pos, node, puncher, pointed_thing)
 	end
 	
 	-- KEYPAD
-	if node.name == "basic_machines:keypad" then -- keypad init/usage code
+	if node.name == "basic_keypad:keypad" then -- keypad init/usage code
 		
 		local meta = minetest.get_meta(pos);
 		if not (meta:get_int("x0")==0 and meta:get_int("y0")==0 and meta:get_int("z0")==0) then -- already configured
@@ -2019,7 +2019,7 @@ minetest.register_on_punchnode(function(pos, node, puncher, pointed_thing)
 		end
 	end
 	
-	if punchset[name].node=="basic_machines:keypad" then -- keypad setup code
+	if punchset[name].node=="basic_keypad:keypad" then -- keypad setup code
 
 		if minetest.is_protected(pos,name) then
 			minetest.chat_send_player(name, "KEYPAD: Punched position is protected. aborting.")
@@ -2048,8 +2048,8 @@ minetest.register_on_punchnode(function(pos, node, puncher, pointed_thing)
 		end
 	end
 
-	-- DETECTOR "basic_machines:detector"
-	if node.name == "basic_machines:detector" then -- detector init code
+	-- DETECTOR "basic_keypad:detector"
+	if node.name == "basic_keypad:detector" then -- detector init code
 		local meta = minetest.get_meta(pos);
 			
 			--meta:get_string("owner")~= name
@@ -2063,7 +2063,7 @@ minetest.register_on_punchnode(function(pos, node, puncher, pointed_thing)
 			end
 	end
 	
-	if punchset[name].node == "basic_machines:detector" then
+	if punchset[name].node == "basic_keypad:detector" then
 			
 			if minetest.is_protected(pos,name) then
 				minetest.chat_send_player(name, "DETECTOR: Punched position is protected. aborting.")
@@ -2111,7 +2111,7 @@ minetest.register_on_punchnode(function(pos, node, puncher, pointed_thing)
 	end
 	
 	
-	if punchset[name].node == "basic_machines:distributor" then
+	if punchset[name].node == "basic_keypad:distributor" then
 			
 			if minetest.is_protected(pos,name) then
 				minetest.chat_send_player(name, "DISTRIBUTOR: Punched position is protected. aborting.")
@@ -2148,7 +2148,7 @@ end)
 minetest.register_on_player_receive_fields(function(player,formname,fields)
 	
 	-- MOVER
-	local fname = "basic_machines:mover_"
+	local fname = "basic_keypad:mover_"
 	if string.sub(formname,0,string.len(fname)) == fname then
 		local pos_s = string.sub(formname,string.len(fname)+1); local pos = minetest.string_to_pos(pos_s)
 		local name = player:get_player_name(); if name==nil then return end
@@ -2161,7 +2161,7 @@ minetest.register_on_player_receive_fields(function(player,formname,fields)
 		
 	
 		if fields.help == "help" then
-			local text = "version " .. basic_machines.version .. "\nSETUP: For interactive setup "..
+			local text = "version " .. basic_keypad.version .. "\nSETUP: For interactive setup "..
 			"punch the mover and then punch source1, source2, target node (follow instructions). Put charged battery within distance 1 from mover. For advanced setup right click mover. Positions are defined by x y z coordinates (see top of mover for orientation). Mover itself is at coordinates 0 0 0. "..
 			"\n\nMODES of operation: normal (just teleport block), dig (digs and gives you resulted node - good for harvesting farms), drop "..
 			"(drops node on ground), object (teleportation of player and objects. distance between source1/2 defines teleport radius). by setting filter you can specify move time for objects or names for players. "..
@@ -2171,14 +2171,14 @@ minetest.register_on_player_receive_fields(function(player,formname,fields)
 			"\n\n UPGRADE mover by moving mese blocks in upgrade inventory. Each mese block increases mover range by 10, fuel consumption is divided by (number of mese blocks)+1 in upgrade. Max 10 blocks are used for upgrade. Dont forget to click OK to refresh after upgrade. "..
 			"\n\n Activate mover by keypad/detector signal or mese signal (if mesecons mod) .";
 			local form = "size [8,7] textarea[0,0.1;8.5,8.5;help;MOVER HELP;".. text.."]"
-			minetest.show_formspec(name, "basic_machines:help_mover", form)
+			minetest.show_formspec(name, "basic_keypad:help_mover", form)
 			return
 		end
 		
 		if fields.tabs then
 			meta:set_int("seltab", tonumber(fields.tabs) or 1)
 			local form = get_mover_form(pos,player)
-			minetest.show_formspec(player:get_player_name(), "basic_machines:mover_"..minetest.pos_to_string(pos), form)
+			minetest.show_formspec(player:get_player_name(), "basic_keypad:mover_"..minetest.pos_to_string(pos), form)
 			return
 		end
 		
@@ -2290,7 +2290,7 @@ minetest.register_on_player_receive_fields(function(player,formname,fields)
 			
 			meta:set_string("mode",fields.mode);
 			local form = get_mover_form(pos,player)
-			minetest.show_formspec(player:get_player_name(), "basic_machines:mover_"..minetest.pos_to_string(pos), form)
+			minetest.show_formspec(player:get_player_name(), "basic_keypad:mover_"..minetest.pos_to_string(pos), form)
 			return
 		end
 		
@@ -2298,7 +2298,7 @@ minetest.register_on_player_receive_fields(function(player,formname,fields)
 	end
 	
 	-- KEYPAD
-	fname = "basic_machines:keypad_"
+	fname = "basic_keypad:keypad_"
 	
 	if string.sub(formname,0,string.len(fname)) == fname then
 		local pos_s = string.sub(formname,string.len(fname)+1); local pos = minetest.string_to_pos(pos_s)
@@ -2333,7 +2333,7 @@ minetest.register_on_player_receive_fields(function(player,formname,fields)
 			
 			
 			local form = "size [8,7] textarea[0,0.1;8.5,8.5;help;KEYPAD HELP;".. minetest.formspec_escape(text).."]"
-			minetest.show_formspec(name, "basic_machines:help_keypad", form)
+			minetest.show_formspec(name, "basic_keypad:help_keypad", form)
 			return
 		end
 		
@@ -2378,7 +2378,7 @@ minetest.register_on_player_receive_fields(function(player,formname,fields)
 		return
 	end
 	
-	fname = "basic_machines:check_keypad_"
+	fname = "basic_keypad:check_keypad_"
 	if string.sub(formname,0,string.len(fname)) == fname then
 		local pos_s = string.sub(formname,string.len(fname)+1); local pos = minetest.string_to_pos(pos_s)
 		local name = player:get_player_name(); if name==nil then return end
@@ -2419,7 +2419,7 @@ minetest.register_on_player_receive_fields(function(player,formname,fields)
 	end
 	
 	-- DETECTOR
-	local fname = "basic_machines:detector_"
+	local fname = "basic_keypad:detector_"
 	if string.sub(formname,0,string.len(fname)) == fname then
 		local pos_s = string.sub(formname,string.len(fname)+1); local pos = minetest.string_to_pos(pos_s)
 		local name = player:get_player_name(); if name==nil then return end
@@ -2438,7 +2438,7 @@ minetest.register_on_player_receive_fields(function(player,formname,fields)
 			"\n\nADVANCED: you can select second source and then select AND/OR from the right top dropdown list to do logical operations. You can also filter output signal:\n -2=only OFF,-1=NOT/0/1=normal,2=only ON, 3 only if changed"..
 			" 4 = if target keypad set its text to detected object name" ;
 			local form = "size [5.5,5.5] textarea[0,0;6,7;help;DETECTOR HELP;".. text.."]"
-			minetest.show_formspec(name, "basic_machines:help_detector", form)
+			minetest.show_formspec(name, "basic_keypad:help_detector", form)
 		end
 		
 		if fields.OK == "OK" then
@@ -2490,7 +2490,7 @@ minetest.register_on_player_receive_fields(function(player,formname,fields)
 
 	
 	-- DISTRIBUTOR
-	local fname = "basic_machines:distributor_"
+	local fname = "basic_keypad:distributor_"
 	if string.sub(formname,0,string.len(fname)) == fname then
 		local pos_s = string.sub(formname,string.len(fname)+1); local pos = minetest.string_to_pos(pos_s)
 		local name = player:get_player_name(); if name==nil then return end
@@ -2528,12 +2528,12 @@ minetest.register_on_player_receive_fields(function(player,formname,fields)
 		if fields["view"] then -- change view mode
 			meta:set_int("view",1-meta:get_int("view"))
 			local form = get_distributor_form(pos,player)
-			minetest.show_formspec(player:get_player_name(), "basic_machines:distributor_"..minetest.pos_to_string(pos), form)
+			minetest.show_formspec(player:get_player_name(), "basic_keypad:distributor_"..minetest.pos_to_string(pos), form)
 			return
 		end
 		
 		if fields["scan"] then -- scan for connectable nodes
-			local connectables = basic_machines.connectables;
+			local connectables = basic_keypad.connectables;
 			local x1 = (meta:get_int("x1") or 0)+pos.x;
 			local y1 = (meta:get_int("y1") or 0)+pos.y;
 			local z1 = (meta:get_int("z1") or 0)+pos.z;
@@ -2573,7 +2573,7 @@ minetest.register_on_player_receive_fields(function(player,formname,fields)
 			local n = meta:get_int("n");
 			if n<16 then meta:set_int("n",n+1);	end -- max 16 outputs
 			local form = get_distributor_form(pos,player)
-			minetest.show_formspec(player:get_player_name(), "basic_machines:distributor_"..minetest.pos_to_string(pos), form)
+			minetest.show_formspec(player:get_player_name(), "basic_keypad:distributor_"..minetest.pos_to_string(pos), form)
 			return
 		end
 		
@@ -2594,7 +2594,7 @@ minetest.register_on_player_receive_fields(function(player,formname,fields)
 		for i = 1,n do if fields["SET"..i] then j = i end end
 		-- set up j-th point
 		if j>0 then 
-			punchset[name].node = "basic_machines:distributor";
+			punchset[name].node = "basic_keypad:distributor";
 			punchset[name].state = j
 			punchset[name].pos = pos;
 			minetest.chat_send_player(name,"[DISTRIBUTOR] punch the position to set target "..j); 
@@ -2616,7 +2616,7 @@ minetest.register_on_player_receive_fields(function(player,formname,fields)
 				
 				meta:set_int("n",n-1);
 				local form = get_distributor_form(pos,player)
-				minetest.show_formspec(player:get_player_name(), "basic_machines:distributor_"..minetest.pos_to_string(pos), form)
+				minetest.show_formspec(player:get_player_name(), "basic_keypad:distributor_"..minetest.pos_to_string(pos), form)
 				return;
 			end
 		end
@@ -2636,7 +2636,7 @@ minetest.register_on_player_receive_fields(function(player,formname,fields)
 			"by putting 0 as MODE it will start to listen. First number x = 0/1 controls if node listens to failed interact attempts around it, second\n".. 
 			"number y= -1/0/1 controls listening to chat (-1 additionaly mutes chat)";
 			local form = "size [7.5,5.5] textarea[0,0.1;8,7;help;DISTRIBUTOR HELP;".. text.."]"
-			minetest.show_formspec(name, "basic_machines:help_distributor", form)
+			minetest.show_formspec(name, "basic_keypad:help_distributor", form)
 		end
 		
 	end
@@ -2647,7 +2647,7 @@ end)
 -- CRAFTS --
 
 minetest.register_craft({
-	 output = "basic_machines:keypad",
+	 output = "basic_keypad:keypad",
 	 recipe = {
 	 {"default:stick"},
 	 {"default:wood"},
@@ -2655,25 +2655,25 @@ minetest.register_craft({
 })
 
 -- minetest.register_craft({
-	-- output = "basic_machines:mover",
+	-- output = "basic_keypad:mover",
 	-- recipe = {
 		-- {"default:mese_crystal", "default:mese_crystal","default:mese_crystal"},
 		-- {"default:mese_crystal", "default:mese_crystal","default:mese_crystal"},
-		-- {"default:stone", "basic_machines:keypad", "default:stone"}
+		-- {"default:stone", "basic_keypad:keypad", "default:stone"}
 	-- }
 -- })
 
 -- minetest.register_craft({
-	-- output = "basic_machines:detector",
+	-- output = "basic_keypad:detector",
 	-- recipe = {
 		-- {"default:mese_crystal", "default:mese_crystal"},
 		-- {"default:mese_crystal", "default:mese_crystal"},
-		-- {"basic_machines:keypad",""}
+		-- {"basic_keypad:keypad",""}
 	-- }
 -- })
 
 -- minetest.register_craft({
-	-- output = "basic_machines:light_on",
+	-- output = "basic_keypad:light_on",
 	-- recipe = {
 		-- {"default:torch", "default:torch"},
 		-- {"default:torch", "default:torch"}
@@ -2682,24 +2682,24 @@ minetest.register_craft({
 
 
 -- minetest.register_craft({
-	-- output = "basic_machines:distributor",
+	-- output = "basic_keypad:distributor",
 	-- recipe = {
 		-- {"default:steel_ingot"},
 		-- {"default:mese_crystal"},
-		-- {"basic_machines:keypad"}
+		-- {"basic_keypad:keypad"}
 	-- }
 -- })
 
 -- minetest.register_craft({
-	-- output = "basic_machines:clockgen",
+	-- output = "basic_keypad:clockgen",
 	-- recipe = {
 		-- {"default:diamondblock"},
-		-- {"basic_machines:keypad"}
+		-- {"basic_keypad:keypad"}
 	-- }
 -- })
-minetest.unregister_item("basic_machines:clockgen")
-minetest.unregister_item("basic_machines:distributor")
-minetest.unregister_item("basic_machines:light_on")
-minetest.unregister_item("basic_machines:light_off")
-minetest.unregister_item("basic_machines:detector")
-minetest.unregister_item("basic_machines:mover")
+minetest.unregister_item("basic_keypad:clockgen")
+minetest.unregister_item("basic_keypad:distributor")
+minetest.unregister_item("basic_keypad:light_on")
+minetest.unregister_item("basic_keypad:light_off")
+minetest.unregister_item("basic_keypad:detector")
+minetest.unregister_item("basic_keypad:mover")
